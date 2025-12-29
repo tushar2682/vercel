@@ -5,6 +5,12 @@ import { simpleGit } from 'simple-git';
 import path from 'path';
 import fs from 'fs';
 import { generate } from './utils.js';
+import { get } from 'http';
+import { getallFiles } from './file.js';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -30,7 +36,10 @@ app.post(
 
     try {
       const git = simpleGit();
-      await git.clone(repoUrl, outputDir);
+      await git.clone(repoUrl, `dist/outputs${id}`);
+      const files=getallFiles(path.join(__dirname,'../outputs{id}'));
+      console.log(files);
+
 
       return res.json({
         message: 'Deployment initiated',
