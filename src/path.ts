@@ -17,11 +17,3 @@ const s3=new S3(
         };
         await s3.upload(params).promise();
     };
-    const files=getAllFiles(path.join(__dirname,`output/${id}`));
-    files.forEach(async(file)=>{
-       await uploadfile(file.slice(__dirname.length + 1), file);
-    });
-
-function getAllFiles(arg0: string) {
-    throw new Error("Function not implemented.");
-}
