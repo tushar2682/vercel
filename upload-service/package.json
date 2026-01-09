@@ -1,0 +1,25 @@
+{
+    "name": "upload-service",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "dev": "ts-node src/index.ts"
+    },
+    "dependencies": {
+        "aws-sdk": "^2.1692.0",
+        "cors": "^2.8.5",
+        "express": "^4.19.2",
+        "redis": "^4.7.0",
+        "simple-git": "^3.27.0",
+        "uuid": "^9.0.1"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.17",
+        "@types/express": "^4.17.21",
+        "@types/node": "^22.10.6",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.7.3"
+    }
+}
