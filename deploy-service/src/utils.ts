@@ -1,10 +1,11 @@
-
-import { exec, spawn } from "child_process";
+import { exec } from "child_process";
 import path from "path";
 
 export function buildProject(id: string) {
     return new Promise((resolve) => {
-        const child = exec(`cd ${path.join(__dirname, `output/${id}`)} && npm install && npm run build`)
+        const child = exec(`npm install && npm run build`, {
+            cwd: path.join(__dirname, `output/${id}`)
+        });
 
         child.stdout?.on('data', function (data) {
             console.log('stdout: ' + data);
