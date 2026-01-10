@@ -3,9 +3,9 @@ import express from "express";
 import { S3 } from "aws-sdk";
 
 const s3 = new S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    endpoint: process.env.AWS_ENDPOINT
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
+    endpoint: process.env.AWS_ENDPOINT as string
 })
 
 const app = express();
